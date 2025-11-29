@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Fredoka+One&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     /* IKEA Theme (Default) */
     --bg-color: #ffffff;
@@ -65,6 +69,8 @@ header {
     border-bottom: var(--border-width) solid var(--border-color);
     padding-bottom: 20px;
     margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 /* LEGO Mode Header Adjustment */
@@ -89,6 +95,7 @@ h1 {
     display: flex;
     gap: 20px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .theme-selector {
@@ -98,6 +105,7 @@ h1 {
     border-radius: var(--border-radius);
     background: white;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .step-container {
@@ -128,6 +136,7 @@ h1 {
     font-size: 1.2em;
     margin-bottom: 30px;
     font-weight: 400;
+    line-height: 1.5;
 }
 
 .navigation {
@@ -136,6 +145,8 @@ h1 {
     align-items: center;
     border-top: var(--border-width) solid var(--border-color);
     padding-top: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 button {
@@ -150,6 +161,7 @@ button {
     color: var(--btn-text);
     box-shadow: var(--shadow);
     transition: all 0.2s;
+    white-space: nowrap;
 }
 
 button:hover {
@@ -174,10 +186,10 @@ button:disabled {
     align-items: center;
     cursor: pointer;
     font-weight: 700;
+    gap: 10px;
 }
 
 .toggle-container input {
-    margin-right: 10px;
     width: 20px;
     height: 20px;
     accent-color: var(--accent-color);
@@ -199,4 +211,177 @@ button:disabled {
 
 .nano-banana.visible {
     display: block;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE OPTIMIZATION
+   ======================================== */
+
+/* Tablets and smaller */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+        border-width: 1px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+
+    body.lego-mode header {
+        margin: -20px -20px 20px -20px;
+        padding: 15px 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .controls-top {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .theme-selector {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .toggle-container {
+        font-size: 0.9em;
+    }
+
+    .step-container {
+        min-height: 400px;
+    }
+
+    .step-image {
+        max-height: 300px;
+    }
+
+    .step-text {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .navigation {
+        padding-top: 15px;
+    }
+
+    button {
+        padding: 8px 20px;
+        font-size: 0.9em;
+    }
+
+    .step-indicator {
+        font-size: 1em;
+        flex: 1;
+        text-align: center;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        padding: 15px;
+        border-radius: 0;
+    }
+
+    body.lego-mode .container {
+        border-radius: 8px;
+    }
+
+    header {
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+    body.lego-mode header {
+        margin: -15px -15px 15px -15px;
+        padding: 10px 15px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .controls-top {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .theme-selector {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .toggle-container {
+        justify-content: center;
+    }
+
+    .step-container {
+        min-height: 350px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .step-image {
+        max-height: 250px;
+    }
+
+    .step-text {
+        font-size: 0.95em;
+        line-height: 1.4;
+    }
+
+    .navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navigation>* {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .step-indicator {
+        order: -1;
+        margin-bottom: 10px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.3em;
+    }
+
+    .step-image {
+        max-height: 200px;
+    }
+
+    .step-text {
+        font-size: 0.9em;
+    }
 }
