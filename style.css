@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Fredoka+One&display=swap');
+
+:root {
+    /* IKEA Theme (Default) */
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --accent-color: #000000;
+    --border-color: #000000;
+    --font-main: 'Noto Sans', sans-serif;
+    --header-bg: #ffffff;
+    --card-bg: #ffffff;
+    --border-width: 2px;
+    --border-radius: 0px;
+    --shadow: none;
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+    --btn-hover: #f0f0f0;
+}
+
+body.lego-mode {
+    /* LEGO Theme */
+    --bg-color: #FAED26;
+    /* LEGO Yellow */
+    --text-color: #000000;
+    --accent-color: #EE2624;
+    /* LEGO Red */
+    --border-color: #000000;
+    --font-main: 'Fredoka One', cursive;
+    --header-bg: #EE2624;
+    --card-bg: #ffffff;
+    --border-width: 4px;
+    --border-radius: 12px;
+    --shadow: 4px 4px 0px #000000;
+    --btn-bg: #005DAA;
+    /* LEGO Blue */
+    --btn-text: #ffffff;
+    --btn-hover: #004B8D;
+}
+
+body {
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    border: var(--border-width) solid var(--border-color);
+    padding: 40px;
+    position: relative;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+/* LEGO Mode Header Adjustment */
+body.lego-mode header {
+    background-color: var(--header-bg);
+    margin: -40px -40px 40px -40px;
+    padding: 20px 40px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 4px solid #000;
+    color: white;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.controls-top {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.theme-selector {
+    padding: 8px;
+    font-family: var(--font-main);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: white;
+    cursor: pointer;
+}
+
+.step-container {
+    text-align: center;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.step-image-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.step-image {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border: var(--border-width) solid transparent;
+}
+
+.step-text {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: var(--border-width) solid var(--border-color);
+    padding-top: 20px;
+}
+
+button {
+    background: var(--btn-bg);
+    border: var(--border-width) solid var(--border-color);
+    padding: 10px 30px;
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    color: var(--btn-text);
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.step-indicator {
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+/* Nano Banana Toggle */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.toggle-container input {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent-color);
+}
+
+/* Nano Banana Overlay */
+.nano-banana {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23FFE135" stroke="black" stroke-width="5" d="M20,80 Q40,20 80,10 Q60,40 70,80 Q50,60 20,80 Z"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    display: none;
+    /* Hidden by default */
+    transition: all 0.3s ease;
+}
+
+.nano-banana.visible {
+    display: block;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBOCONDA Assembly Instructions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>ROBOCONDA</h1>
+            <div class="controls-top">
+                <select id="theme-selector" class="theme-selector">
+                    <option value="ikea">IKEA Mode</option>
+                    <option value="lego">LEGO Mode</option>
+                </select>
+                <label class="toggle-container">
+                    <input type="checkbox" id="banana-toggle">
+                    <span class="toggle-label">Nano Banana Mode</span>
+                </label>
+            </div>
+        </header>
+
+        <div class="step-container">
+            <h2 id="step-title">0. Parts List</h2>
+            <div class="step-image-container">
+                <img src="parts_list.png" alt="Step Image" class="step-image" id="step-image">
+            </div>
+            <p class="step-text" id="step-text">Here are all the parts you'll need to build your Roboconda.</p>
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>← Previous</button>
+            <span class="step-indicator" id="step-indicator">Step 1 / 11</span>
+            <button id="next-btn">Next →</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
